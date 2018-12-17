@@ -1,10 +1,12 @@
-const appConfig = require("./config/appConfig")
-const fs = require('fs')
-const express = require('express')
-const app = express()
-const mongoose = require('mongoose')
-const cookieParser = require('cookie-parser')
-const bodyParser = require('body-parser')
+const appConfig = require("./config/appConfig"); 
+const fs = require('fs');
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const globalErrorMiddleware = require('./middlewares/appErrorHandler');
+const globalRouteMiddleware = require('./middlewares/routeLogger');
 
 app.use(bodyParser.json({
     limit: '10mb',
@@ -15,6 +17,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.use(globalErrorMiddleware.globalErrorHandler);
+app.use(globalRouteMiddleware.logIp);
 //app.use(bodyParser.json);
 //app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser())
@@ -37,7 +41,7 @@ fs.readdirSync(routePath).forEach( function (file) {
 	}
 });
 
-
+app.use(globalErrorMiddleware.globalNotFoundError);
 
 
 app.listen(appConfig.port, () => {
