@@ -1,0 +1,907 @@
+{
+	"info": {
+		"_postman_id": "54b39dbe-3e8c-4368-90da-152fe67b2a62",
+		"name": "nodejs tutorial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "blog-app",
+			"item": [
+				{
+					"name": "get-all-blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/blogs/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all blogs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/api/v1/blogs/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"blogs",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "286"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11e-w5bWGSrmjG9nSvUK7hp6wS8TK7w\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Dec 2018 05:25:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"custom title\",\n        \"description\": \"custom description\",\n        \"bodyHtml\": \"custom body\",\n        \"views\": 0,\n        \"isPublished\": false,\n        \"category\": \"custom\",\n        \"author\": \"prajval\",\n        \"tags\": [\n            \"tag1\",\n            \"tag2\",\n            \" tag3\"\n        ],\n        \"blogId\": \"bYDh2e_tw\",\n        \"created\": \"2018-12-17T05:23:07.979Z\",\n        \"lastModified\": \"2018-12-17T05:23:07.979Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "create-blog",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "custom title",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "custom description",
+									"type": "text"
+								},
+								{
+									"key": "bodyHtml",
+									"value": "custom body",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "custom",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "prajval",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "tag1,tag2, tag3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/blogs/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://127.0.0.1:3000/api/v1/blogs/create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "custom title",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "custom description",
+											"type": "text"
+										},
+										{
+											"key": "bodyHtml",
+											"value": "custom body",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "custom",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "prajval",
+											"type": "text"
+										},
+										{
+											"key": "tags",
+											"value": "tag1,tag2, tag3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/api/v1/blogs/create",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"blogs",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "325"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"145-g+rREPBmMHY9a1w5V0uhyVd5jug\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Dec 2018 05:23:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"custom title\",\n    \"description\": \"custom description\",\n    \"bodyHtml\": \"custom body\",\n    \"views\": 0,\n    \"isPublished\": false,\n    \"category\": \"custom\",\n    \"author\": \"prajval\",\n    \"tags\": [\n        \"tag1\",\n        \"tag2\",\n        \" tag3\"\n    ],\n    \"_id\": \"5c1732bbc5bfcf661fe25236\",\n    \"blogId\": \"bYDh2e_tw\",\n    \"created\": \"2018-12-17T05:23:07.979Z\",\n    \"lastModified\": \"2018-12-17T05:23:07.979Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "view-by-blog-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/blogs/view/:blogId",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"view",
+								":blogId"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": "bYDh2e_tw"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "view by blog id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/api/v1/blogs/view/bYDh2e_tw",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"blogs",
+										"view",
+										"bYDh2e_tw"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "284"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11c-ouD0M5zwtmLVwkMQ5VmZMY7C0AI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Dec 2018 05:25:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"custom title\",\n    \"description\": \"custom description\",\n    \"bodyHtml\": \"custom body\",\n    \"views\": 0,\n    \"isPublished\": false,\n    \"category\": \"custom\",\n    \"author\": \"prajval\",\n    \"tags\": [\n        \"tag1\",\n        \"tag2\",\n        \" tag3\"\n    ],\n    \"blogId\": \"bYDh2e_tw\",\n    \"created\": \"2018-12-17T05:23:07.979Z\",\n    \"lastModified\": \"2018-12-17T05:23:07.979Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "view-by-author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/blogs/view/by/:author",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"view",
+								"by",
+								":author"
+							],
+							"variable": [
+								{
+									"key": "author",
+									"value": "prajval"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "view-by-author",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/api/v1/blogs/view/by/:author",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"blogs",
+										"view",
+										"by",
+										":author"
+									],
+									"variable": [
+										{
+											"key": "author",
+											"value": "prajval"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "286"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11e-w5bWGSrmjG9nSvUK7hp6wS8TK7w\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Dec 2018 05:54:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"custom title\",\n        \"description\": \"custom description\",\n        \"bodyHtml\": \"custom body\",\n        \"views\": 0,\n        \"isPublished\": false,\n        \"category\": \"custom\",\n        \"author\": \"prajval\",\n        \"tags\": [\n            \"tag1\",\n            \"tag2\",\n            \" tag3\"\n        ],\n        \"blogId\": \"bYDh2e_tw\",\n        \"created\": \"2018-12-17T05:23:07.979Z\",\n        \"lastModified\": \"2018-12-17T05:23:07.979Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "view-by-category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/blogs/view/by/:category",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								"view",
+								"by",
+								":category"
+							],
+							"variable": [
+								{
+									"key": "category",
+									"value": "custom"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "view by category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/api/v1/blogs/view/by/category/custom",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"blogs",
+										"view",
+										"by",
+										"category",
+										"custom"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "286"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11e-w5bWGSrmjG9nSvUK7hp6wS8TK7w\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Dec 2018 05:53:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"custom title\",\n        \"description\": \"custom description\",\n        \"bodyHtml\": \"custom body\",\n        \"views\": 0,\n        \"isPublished\": false,\n        \"category\": \"custom\",\n        \"author\": \"prajval\",\n        \"tags\": [\n            \"tag1\",\n            \"tag2\",\n            \" tag3\"\n        ],\n        \"blogId\": \"bYDh2e_tw\",\n        \"created\": \"2018-12-17T05:23:07.979Z\",\n        \"lastModified\": \"2018-12-17T05:23:07.979Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "edit-blog",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "custom title edited",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/blogs/:blogId/edit",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								":blogId",
+								"edit"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": "bYDh2e_tw"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "edit-blog",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "custom title edited",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/api/v1/blogs/:blogId/edit",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"blogs",
+										":blogId",
+										"edit"
+									],
+									"variable": [
+										{
+											"key": "blogId",
+											"value": "bYDh2e_tw"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c-9CSp0YZbwVi1S/g+0CyT4pOh1+k\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Dec 2018 06:12:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"n\": 1,\n    \"nModified\": 1,\n    \"ok\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/blogs/:blogId/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								":blogId",
+								"delete"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": "bYDh2e_tw"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete-blog",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/api/v1/blogs/:blogId/delete",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"blogs",
+										":blogId",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "blogId",
+											"value": "bYDh2e_tw"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-O6wjzRYDyhFZBXnno9+gyqQ12rA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Dec 2018 06:28:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"n\": 1,\n    \"ok\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "increment-blog-views",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/blogs/:blogId/count/view",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"blogs",
+								":blogId",
+								"count",
+								"view"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": "bYDh2e_tw"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "increment-blog-views",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/api/v1/blogs/:blogId/count/view",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"blogs",
+										":blogId",
+										"count",
+										"view"
+									],
+									"variable": [
+										{
+											"key": "blogId",
+											"value": "bYDh2e_tw"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "332"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14c-NBT26WHgVV8kxeipbHgRlUjZ5O8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Dec 2018 06:22:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"custom title edited\",\n    \"description\": \"custom description\",\n    \"bodyHtml\": \"custom body\",\n    \"views\": 5,\n    \"isPublished\": false,\n    \"category\": \"custom\",\n    \"author\": \"prajval\",\n    \"tags\": [\n        \"tag1\",\n        \"tag2\",\n        \" tag3\"\n    ],\n    \"_id\": \"5c1732bbc5bfcf661fe25236\",\n    \"blogId\": \"bYDh2e_tw\",\n    \"created\": \"2018-12-17T05:23:07.979Z\",\n    \"lastModified\": \"2018-12-17T05:23:07.979Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
