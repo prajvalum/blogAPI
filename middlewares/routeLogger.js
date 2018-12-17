@@ -1,9 +1,9 @@
 const appConfig = require('./../config/appConfig');
-
+const timeLib = require('./../libs/timeLib')
 let requestIpLogger = (req, res, next) => {
-    console.log(req.connection);
-    let remoteIp = req.connection.remoteAddress + "://" + req.connection.realIp;
+    let remoteIp = req.connection.remoteAddress + "://" + req.connection;
     let realIp = req.headers['X-REAL-IP'];
+    console.log("start time " + timeLib.now())
     console.log(req.method + "Request made from " + remoteIp + ' for route' + req.originalUrl);
     if (req.method === 'OPTIONS') {
         console.log('!OPTIONS');

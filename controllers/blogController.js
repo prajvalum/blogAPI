@@ -2,17 +2,29 @@
 const mongoose = require('mongoose')
 const BlogModel = mongoose.model('Blog')
 const shortid = require('shortid')
+const response = require('./../libs/responseLib')
+const check = require('./../libs/checkLib')
+const logger = require('./../libs/loggerLib')
+
 
 let getAllBlog = (req, res) => {
 	BlogModel.find().select('-__v -_id').lean().exec((err, result) => {
 		if (err) {
-			res.send(err);
+			logger.error(err.message, 'blcgController: getAllBlog', 10)
+			let apiResponse = response.generate(true, "Failed To Find Blog Details", 500, null);
+			console.log(apiResponse)
+			res.send(apiResponse);
 		}
-		else if (result == undefined || result == null || result == '') {
-			res.send('No Blog Found');
+		else if (check.isEmpty(result)) {
+			let apiResponse = response.generate(true, "No Blog Found", 404, null);
+			console.log(apiResponse)
+			res.send(apiResponse);
 		}
 		else {
-			res.send(result);
+			logger.info('All Blog Details Found', 'blcgController: getAllBlog', 10)
+			let apiResponse = response.generate(false, "All Blog Details Found", 200, result);
+			console.log(apiResponse)
+			res.send(apiResponse);
 		}
 	});
 }
@@ -20,13 +32,16 @@ let getAllBlog = (req, res) => {
 let viewByBlogId = (req, res) => {
 	BlogModel.findOne({'blogId':req.params.blogId}).select('-__v -_id').lean().exec((err, result) => {
 		if (err) {
-			res.send(err);
+			let apiResponse = response.generate(true, "Failed To Find Blog Details", 500, null);
+			res.send(apiResponse);
 		}
-		else if (result == undefined || result == null || result == '') {
-			res.send('No Blog Found');
+		else if (check.isEmpty(result)) {
+			let apiResponse = response.generate(true, "No Blog Found", 404, null);
+			res.send(apiResponse);
 		}
 		else {
-			res.send(result);
+			let apiResponse = response.generate(false, "Blog Details Found", 200, result);
+			res.send(apiResponse);
 		}
 	});
 
@@ -35,13 +50,16 @@ let viewByBlogId = (req, res) => {
 let viewByAuthor = (req, res) => {
 	BlogModel.find({'author':req.params.author}).select('-__v -_id').lean().exec((err, result) => {
 		if (err) {
-			res.send(err);
+			let apiResponse = response.generate(true, "Failed To Find Blog Details", 500, null);
+			res.send(apiResponse);
 		}
-		else if (result == undefined || result == null || result == '') {
-			res.send('No Blog Found');
+		else if (check.isEmpty(result)) {
+			let apiResponse = response.generate(true, "No Blog Found", 404, null);
+			res.send(apiResponse);
 		}
 		else {
-			res.send(result);
+			let apiResponse = response.generate(false, "Blog Details Found", 200, result);
+			res.send(apiResponse);
 		}
 	});
 }
@@ -49,13 +67,16 @@ let viewByAuthor = (req, res) => {
 let viewByCategory = (req, res) => {
 	BlogModel.find({'category':req.params.category}).select('-__v -_id').lean().exec((err, result) => {
 		if (err) {
-			res.send(err);
+			let apiResponse = response.generate(true, "Failed To Find Blog Details", 500, null);
+			res.send(apiResponse);
 		}
-		else if (result == undefined || result == null || result == '') {
-			res.send('No Blog Found');
+		else if (check.isEmpty(result)) {
+			let apiResponse = response.generate(true, "No Blog Found", 404, null);
+			res.send(apiResponse);
 		}
 		else {
-			res.send(result);
+			let apiResponse = response.generate(false, "Blog Details Found", 200, result);
+			res.send(apiResponse);
 		}
 	});
 
@@ -64,13 +85,16 @@ let viewByCategory = (req, res) => {
 let deleteBlog = (req, res) => {
 	BlogModel.remove({'blogId': req.params.blogId}).exec((err, result) => {
 		if (err) {
-			req.send(err);
+			let apiResponse = response.generate(true, "Failed To Find Blog Details By Given BlogId", 500, null);
+			res.send(apiResponse);
 		}
-		else if (result == undefined && result == null && result == '') {
-			res.send('No Blog Found');
+		else if (check.isEmpty(result)) {
+			let apiResponse = response.generate(true, "No Blog Found", 404, null);
+			res.send(apiResponse);
 		}
 		else {
-			res.send(result);
+			let apiResponse = response.generate(false, "Blog Deleted succesfully", 200, result);
+			res.send(apiResponse);
 		}
 	});
 }
@@ -81,13 +105,16 @@ let editBlog = (req, res) => {
 	console.log(options);
 	BlogModel.update({'blogId': req.params.blogId}, options, {multi: true}).exec((err, result) => {
 		if (err) {
-			req.send(err);
+			let apiResponse = response.generate(true, "Failed To Edit Blog", 500, null);
+			res.send(apiResponse);
 		}
-		else if (result == undefined && result == null && result == '') {
-			res.send('No Blog Found');
+		else if (check.isEmpty(result)) {
+			let apiResponse = response.generate(true, "No Blog Found", 404, null);
+			res.send(apiResponse);
 		}
 		else {
-			res.send(result);
+			let apiResponse = response.generate(false, "Blog Edit Succesfully", 200, result);
+			res.send(apiResponse);
 		}
 	});
 }
@@ -107,10 +134,12 @@ let createBlog = (req, res) => {
 	newBlog.tags = tags
 	newBlog.save((err, result) => {
 		if(err) {
-			res.send(err);
+			let apiResponse = response.generate(true, "Failed To Create Blog", 500, null);
+			res.send(apiResponse);
 		}
 		else {
-			res.send(result);
+			let apiResponse = response.generate(false, "Blog Created Succesfully", 200, result);
+			res.send(apiResponse);
 		}
 	})
 }	
@@ -120,17 +149,20 @@ let increaseBlogView = (req, res) => {
 		if (err) {
 			res.send(err);
 		}
-		else if (result == undefined && result == null && result == '') {
-			res.send('No Blog Found');
+		else if (check.isEmpty(result)) {
+			let apiResponse = response.generate(true, "No Blog Found", 404, null);
+			res.send(apiResponse);
 		}
 		else {
 			result.views += 1;
 			result.save((err, result) => {
 				if(err) {
-					res.send(err);
+					let apiResponse = response.generate(true, "Failed To Incremented Blog views", 500, null);
+					res.send(apiResponse);
 				}
 				else {
-					res.send(result)
+					let apiResponse = response.generate(false, "Blog Views Incremented Succesfully", 200, result);
+					res.send(apiResponse);	
 				}
 			}) 
 		}
